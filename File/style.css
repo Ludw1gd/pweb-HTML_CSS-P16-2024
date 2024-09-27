@@ -168,6 +168,9 @@ h1, h2, h3 {
     margin-bottom: 1rem;
 }
 
+.product-grid .product-card:nth-child(1) img {
+    object-position: 80% 80%;
+}
 .product-grid .product-card:nth-child(3) img {
     object-position: 80% 80%;
 }
@@ -207,30 +210,42 @@ h1, h2, h3 {
 /* Gallery Section */
 #gallery {
     background-color: var(--color-5);
+    padding: 2rem;
+}
+
+#gallery h2 {
+    font-size: 2rem;
+    color: var(--color-2);
+    text-align: center;
+    margin-bottom: 1.5rem;
 }
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 0 1rem;
 }
 
 .gallery-grid img {
     width: 100%;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
-    border-radius: 5px;
-    transition: transform 0.3s ease;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .gallery-grid img:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Testimonials Section */
 #testimonials {
     background-color: var(--color-4);
     color: var(--color-5);
+    padding: 2rem;
 }
 
 .testimonial-container {
@@ -238,7 +253,8 @@ h1, h2, h3 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 1.5rem;
+    padding: 0 1rem;
 }
 
 blockquote {
@@ -248,8 +264,14 @@ blockquote {
     padding: 1rem;
     font-style: italic;
     flex-basis: calc(33.333% - 1rem);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     border-radius: 0 5px 5px 0;
+}
+
+blockquote:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 blockquote:last-child 

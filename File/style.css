@@ -26,10 +26,17 @@ body {
 /* Header and Navigation */
 header {
     background-color: var(--color-5);
+    padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
+    position: relative;
     top: 0;
     z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 nav {
@@ -40,29 +47,56 @@ nav {
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 24px;
     font-weight: bold;
     color: var(--color-1);
+    display: flex;
+    align-items: center;
 }
 
-nav ul {
+/*.nav-list {
+    display: flex;
+    justify-content: space-around;
+}*/
+
+#navbar ul {
     display: flex;
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
-nav ul li {
-    margin-left: 1.5rem;
+#navbar ul li {
+    margin-left: 20px;
 }
 
-nav ul li a {
+#navbar ul li a {
     text-decoration: none;
     color: var(--color-2);
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
+#navbar ul li a:hover {
     color: var(--color-3);
+}
+
+.menu-toggle-label {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-1);
+    margin: 4px 0;
+    transition: 0.3s;
+}
+
+.menu-toggle-checkbox {
+    display: none;
 }
 
 /* Main Content */
@@ -409,7 +443,91 @@ footer {
     }
 }
 
+@media screen and (max-width: 640px) {
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .menu-toggle-label {
+        display: flex;
+    }
+
+    #navbar {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        display: none;
+        background-color: var(--color-5);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #navbar ul {
+        flex-direction: column;
+    }
+
+    #navbar ul li {
+        margin: 20px 0;
+    }
+
+    #navbar ul li a {
+        font-size: 20px;
+    }
+
+    .menu-toggle-checkbox:checked + .menu-toggle-label + #navbar {
+        display: flex;
+    }
+}
+
 @media screen and (max-width: 480px) {
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .menu-toggle-label {
+        display: flex;
+    }
+
+    #navbar {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        display: none;
+        background-color: var(--color-5);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #navbar ul {
+        flex-direction: column;
+    }
+
+    #navbar ul li {
+        margin: 20px 0;
+    }
+
+    #navbar ul li a {
+        font-size: 20px;
+    }
+
+    .menu-toggle-checkbox:checked + .menu-toggle-label + #navbar {
+        display: flex;
+    }
+    
     .landing-page h1 {
         font-size: 1.8rem;
     }
@@ -428,5 +546,10 @@ footer {
 
     .gallery-grid {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .testimonial-container {
+        display: flex;
+        flex-direction: column;
     }
 }
